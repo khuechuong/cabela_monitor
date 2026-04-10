@@ -25,7 +25,7 @@ python3 cabela_monitor.py
 ```
 
 ## Customizing Your Search 
-To change what the script looks for, go to Line 38 in your code:
+To change what the script looks for, go to Line 38 in [cabela_monitor.py](https://github.com/khuechuong/cabela_monitor/blob/main/cabela_monitor.py):
 
 ```
 url = "https://www.cabelas.com/l/used-guns#sortCriteria=%40offerprice%20ascending&f-cartridge_or_gauge=9mm%20Luger,9mm%20Parabellum,9mm&f-brand=Glock&nf-offerpricefilter=100...400"
