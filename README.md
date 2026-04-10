@@ -24,4 +24,16 @@ paplay /usr/share/sounds/freedesktop/stereo/complete.oga
 python3 cabela_monitor.py
 ```
 
-## Extra 
+## Customizing Your Search 
+To change what the script looks for, go to Line 38 in your code:
+
+```
+url = "https://www.cabelas.com/l/used-guns#sortCriteria=%40offerprice%20ascending&f-cartridge_or_gauge=9mm%20Luger,9mm%20Parabellum,9mm&f-brand=Glock&nf-offerpricefilter=100...400"
+```
+How to get the perfect URL:
+
+- Open your browser and go to Cabelas.com Used Guns.
+
+- Select your filters (e.g., Brand, Price, Caliber).
+
+- Copy the full URL from the address bar and paste it into the script.
