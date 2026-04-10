@@ -65,15 +65,16 @@ try:
             if current_num != last_num:
                 print(f"[{timestamp}] !!! ALERT: Count changed from {last_num} to {current_num} !!!")
                 print('\a') # Beep
-                last_num = current_num
-            else:
-                print(f"[{timestamp}] Results: {current_num}")
                 # --- NOISE MAKER START ---
                 # This plays the Ubuntu "Task Complete" sound 3 times
                 for _ in range(3):
                     os.system('paplay /usr/share/sounds/freedesktop/stereo/complete.oga')
                     time.sleep(0.5)
                 # --- NOISE MAKER END ---
+                last_num = current_num
+            else:
+                print(f"[{timestamp}] Results: {current_num}")
+
         else:
             print(f"[{timestamp}] Search timed out. Site might be blocking or loading slowly.")
 
