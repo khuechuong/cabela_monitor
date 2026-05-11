@@ -6,7 +6,7 @@ import re
 import os
 
 # --- SETTINGS ---
-URL = "https://www.cabelas.com/l/used-guns#sortCriteria=%40offerprice%20ascending&f-cartridge_or_gauge=9mm%20Luger,9mm%20Parabellum,9mm&f-brand=Glock&nf-offerpricefilter=100...400"
+URL = "https://www.cabelas.com/l/used-centerfire-pistol#sortCriteria=%40offerprice%20ascending&f-cartridge_or_gauge=10mm%20Auto,9mm,9mm%20Luger,9mm%20Parabellum&f-brand=Glock&nf-offerpricefilter=100...400"
 TARGET_MODEL = "19" 
 CHROME_PATH = "/usr/bin/chromium-browser"
 
@@ -78,12 +78,12 @@ def run_monitor():
 
         while True:
             # Wait between 25 and 45 seconds
-            time.sleep(random.uniform(25, 45))
+            time.sleep(random.uniform(45, 85))
             
             driver.refresh()
             
             current_total = get_total_count(driver)
-            specific_num = count_specific_models(driver, TARGET_MODEL)
+            
             timestamp = time.strftime('%H:%M:%S')
             
             if current_total:                
@@ -92,9 +92,10 @@ def run_monitor():
                     print(f" !!! INVENTORY CHANGE DETECTED: {last_total} -> {current_total} !!!")
                     play_alert()
                     last_total = current_total
-
-                # 2. ALWAYS PRINT THE COUNTS
-                print(f"[{timestamp}] Total: {current_total} | Glock {TARGET_MODEL}s: {specific_num}")
+                    # 2. ALWAYS PRINT THE COUNTS
+                    specific_num = count_specific_models(driver, TARGET_MODEL)
+                    print(f"[{timestamp}] Total: {current_total} | Glock {TARGET_MODEL}s: {specific_num}")
+                    break
             else:
                 print(f"[{timestamp}] Waiting for data/captcha...")
 
